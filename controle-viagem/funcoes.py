@@ -13,21 +13,14 @@ def registrar(lista):
     viagem['motorista']  = input('Digite o nome do motorista: ').strip().lower()
     viagem['destino']    = input('Destino: ').strip().lower()
     while True:
-        try:
-            viagem['distancia'] = int(input('Distância (km): '))
-            if viagem['distancia'] != 0:
-                break
-            else:
-                print('Valor inválido')
-        except ValueError:
-            print('erro: valor inválido')
-    while True:   
-        try:
-            viagem['gasto'] = round(float(input('Valor: R$')), 2)
+        viagem['distancia'] = int(input('Distância (km): '))
+        if viagem['distancia'] != 0:
             break
-        except ValueError:
-            print('erro: valor inválido')
-    viagem['consumo'] = round(viagem['gasto'] / viagem['distancia'], 2)
+        else:
+            print('Valor inválido')
+         
+    viagem['gasto'] = float(input('Valor: R$'))
+    viagem['consumo'] = viagem['gasto'] / viagem['distancia']
 
     lista.append(viagem)
          
@@ -56,5 +49,7 @@ def mais_cara(lista):
 
 
 def media(lista):
-    return round(sum([viagem['consumo'] for viagem in lista]) / len(lista), 2)
+    return sum([viagem['consumo'] for viagem in lista]) / len(lista)
+
+
     

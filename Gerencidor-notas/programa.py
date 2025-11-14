@@ -3,14 +3,13 @@ from pandas import *
 
 lista = []
 
-while True:
-    
+while True: 
     print('''
 [1] Cadastrar aluno e notas
 [2] Exibir relatório
 [0] Sair
 ''')
-    
+
     while True:
         dicio = {
         'nome'  : '',
@@ -32,11 +31,8 @@ while True:
         
         for i in range(3):
             while True:
-                try:
-                    notas.append(int(input(f"digite a {i+1}ª nota: ")))
-                    break
-                except ValueError:
-                    print("erro, valor inválido.")
+                notas.append(int(input(f"digite a {i+1}ª nota: ")))
+                break
                     
         dicio['nome'] = nome
         dicio['notas'] = notas
